@@ -35,7 +35,7 @@ document.querySelector("#contact-form").addEventListener("submit", (event) => {
   const message = form.get("message") || "";
   const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
   const body = encodeURIComponent(`${message}\n\nFrom: ${name}\nEmail: ${email}`);
-  window.location.href = `mailto:lamuelchristopheroreyes@gmail.com?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:lamuelch.oreyes@gmail.com?subject=${subject}&body=${body}`;
 });
 
 const phoneDialog = document.querySelector("#dialekto-preview");
