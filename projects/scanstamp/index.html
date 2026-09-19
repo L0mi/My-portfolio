@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Create customizable QR codes and Code 128 barcodes directly in your browser.">
+  <title>ScanStamp | QR Code &amp; Barcode Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.12.1/dist/JsBarcode.all.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#generator">Skip to generator</a>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="ScanStamp home"><span class="brand-mark" aria-hidden="true">S</span>ScanStamp</a>
+    <span class="privacy-note"><i aria-hidden="true"></i> Works entirely in your browser</span>
+    <a class="back-link" href="../../index.html#work">Back to portfolio</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">Link in. Scan out.</p>
+      <h1 id="page-title">Turn any link into<br><em>something scannable.</em></h1>
+      <p class="intro">Create crisp QR codes and Code 128 barcodes in seconds. No account, no uploads, no fuss.</p>
+      <form class="link-form" id="generator" novalidate>
+        <label for="link">Your link</label>
+        <div class="input-row">
+          <span aria-hidden="true">↗</span>
+          <input id="link" name="link" value="https://example.com" placeholder="example.com/your-link"
+            inputmode="url" autocomplete="url" aria-describedby="link-help link-error">
+          <button type="submit">Generate <b aria-hidden="true">→</b></button>
+        </div>
+        <p class="field-help" id="link-help">Enter a website address beginning with http:// or https://.</p>
+        <p class="error" id="link-error" role="alert" hidden></p>
+      </form>
+    </section>
+
+    <section class="studio" aria-labelledby="codes-title">
+      <div class="studio-header">
+        <div><span class="section-number">01</span><h2 id="codes-title">Your codes</h2></div>
+        <button class="copy-button" id="copy-link" type="button">Copy link</button>
+      </div>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+
+      <div class="code-grid">
+        <article class="code-card">
+          <div class="card-top"><div><span>QR</span><h3>QR code</h3></div><small>High correction</small></div>
+          <div class="canvas-wrap" id="qr-code" role="img" aria-label="QR code for https://example.com"></div>
+          <button class="download" id="download-qr" type="button">Download PNG <span aria-hidden="true">↓</span></button>
+        </article>
+
+        <article class="code-card">
+          <div class="card-top"><div><span>128</span><h3>Barcode</h3></div><small>Code 128</small></div>
+          <div class="barcode-wrap">
+            <svg id="barcode" role="img" aria-label="Barcode for https://example.com"></svg>
+            <p id="barcode-text">https://example.com</p>
+          </div>
+          <button class="download" id="download-barcode" type="button">Download SVG <span aria-hidden="true">↓</span></button>
+        </article>
+      </div>
+
+      <aside class="controls" aria-labelledby="appearance-title">
+        <div class="control-title"><span class="section-number">02</span><h2 id="appearance-title">Make it yours</h2></div>
+        <label class="range-control"><span>QR size <output id="size-output" for="size">320px</output></span>
+          <input id="size" type="range" min="200" max="480" step="20" value="320"></label>
+        <label class="color-control"><span>Ink</span><span class="color-value"><input id="ink" aria-label="Ink color" type="color" value="#102a2e"><output id="ink-value" for="ink">#102A2E</output></span></label>
+        <label class="color-control"><span>Paper</span><span class="color-value"><input id="paper" aria-label="Paper color" type="color" value="#fffdf5"><output id="paper-value" for="paper">#FFFDF5</output></span></label>
+      </aside>
+    </section>
+  </main>
+
+  <footer><p>Made for quick shares, menus, posters, labels, and everything in between.</p><span>ScanStamp · <span id="year"></span></span></footer>
+</body>
+</html>

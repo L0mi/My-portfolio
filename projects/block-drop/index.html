@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Block Drop — Playable Demo</title>
+  <meta name="description" content="A responsive falling-block puzzle game by Lamuel Reyes.">
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="game-page">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div>
+        <p class="eyebrow">Arcade desk / 01</p>
+        <h1>Block Drop</h1>
+      </div>
+      <p class="tagline">Stack clean. Score big.</p>
+      <button class="sound-button" type="button" id="sound-toggle" aria-pressed="false">Sound off</button>
+    </header>
+
+    <section class="game-shell">
+      <aside class="left-panel" aria-label="Game statistics">
+        <div class="stat-card score-card"><span>Score</span><strong id="score">0</strong></div>
+        <div class="stat-row">
+          <div class="stat-card"><span>Lines</span><strong id="lines">0</strong></div>
+          <div class="stat-card"><span>Level</span><strong id="level">1</strong></div>
+        </div>
+        <div class="next-card">
+          <span class="panel-label">Up next</span>
+          <div class="mini-grid" id="next-piece" aria-label="Next piece"></div>
+        </div>
+        <div class="key-guide" aria-label="Keyboard controls">
+          <span class="panel-label">Keyboard</span>
+          <p><kbd>←</kbd><kbd>→</kbd> Move</p>
+          <p><kbd>↑</kbd> Rotate</p>
+          <p><kbd>↓</kbd> Soft drop</p>
+          <p><kbd>Space</kbd> Hard drop</p>
+          <p><kbd>P</kbd> Pause</p>
+        </div>
+      </aside>
+
+      <div class="board-wrap">
+        <div class="board-frame">
+          <div class="board" id="board" role="img" aria-label="Block Drop game board"></div>
+          <div class="game-overlay" id="game-overlay">
+            <p class="overlay-kicker" id="overlay-kicker">Ready when you are</p>
+            <h2 id="overlay-title">Build your tower</h2>
+            <p id="overlay-detail" hidden></p>
+            <label class="name-field" id="name-field">Player name
+              <input id="player-name" value="Player" maxlength="12" autocomplete="off">
+            </label>
+            <button class="primary-button" id="start-button" type="button">Start game</button>
+          </div>
+        </div>
+        <div class="mobile-controls" aria-label="Touch controls">
+          <button type="button" data-action="left" aria-label="Move left">←</button>
+          <button type="button" data-action="down" aria-label="Soft drop">↓</button>
+          <button type="button" data-action="right" aria-label="Move right">→</button>
+          <button class="rotate-button" type="button" data-action="rotate" aria-label="Rotate">↻</button>
+          <button class="drop-button" type="button" data-action="drop" aria-label="Hard drop">Drop</button>
+        </div>
+      </div>
+
+      <aside class="right-panel">
+        <div class="leaderboard">
+          <div class="leaderboard-heading"><span class="panel-label">Local legends</span><h2>High scores</h2></div>
+          <ol id="high-scores"></ol>
+          <div class="empty-scores" id="empty-scores"><span>✦</span><p>Your first great run belongs here.</p></div>
+        </div>
+        <button class="pause-button" id="pause-button" type="button" disabled>Pause game</button>
+        <p class="save-note">High scores are saved on this device.</p>
+      </aside>
+    </section>
+
+    <footer><span>One piece at a time.</span><span>Designed for keyboard &amp; touch.</span></footer>
+  </main>
+</body>
+</html>
